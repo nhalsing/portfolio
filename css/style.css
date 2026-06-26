@@ -132,7 +132,7 @@ nav ul a:hover { color: var(--color-text); }
 /* ── Work grid ────────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-top: 48px;
 }
