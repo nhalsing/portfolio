@@ -8,9 +8,9 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 
-document.querySelectorAll('.card, .about-grid > div, #contact h2, #contact p, #contact .btn, #contact .social-links')
+document.querySelectorAll('.project, .about-grid > div, .about-grid > .about-img')
   .forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
