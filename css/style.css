@@ -241,6 +241,75 @@ footer {
 /* ── Placeholders (remove when you add real images) ── */
 .placeholder { background: var(--color-surface); }
 
+/* ── Animations ───────────────────────────────── */
+
+/* Hero entrance */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero p {
+  animation: fadeUp 0.7s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero .btn {
+  animation: fadeUp 0.7s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll fade-in — applied via JS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay for grid children */
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+
+/* Card hover lift (enhanced) */
+.card {
+  transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+  transform: translateY(-4px);
+}
+
+/* Nav active link highlight */
+nav ul a {
+  position: relative;
+}
+
+nav ul a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+nav ul a.active::after,
+nav ul a:hover::after {
+  transform: scaleX(1);
+}
+
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   nav ul { gap: 20px; }
