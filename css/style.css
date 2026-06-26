@@ -10,7 +10,8 @@
   --color-border:   #e5e5e5;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --max-w: 1100px;
+  --max-w: 900px;
+  --pad-x: clamp(32px, 6vw, 80px);
   --radius: 12px;
 }
 
@@ -29,20 +30,17 @@ img { display: block; max-width: 100%; }
 
 /* ── Layout helpers ───────────────────────────── */
 .section {
-  padding: 96px 24px;
-  max-width: var(--max-w);
-  margin: 0 auto;
+  padding: 96px var(--pad-x);
+  max-width: calc(var(--max-w) + var(--pad-x));
 }
 
 .section--alt {
   background: var(--color-surface);
-  max-width: 100%;
-  padding: 96px 24px;
+  padding: 96px var(--pad-x);
 }
 
 .section--alt > * {
   max-width: var(--max-w);
-  margin: 0 auto;
 }
 
 /* ── Nav ──────────────────────────────────────── */
@@ -56,9 +54,7 @@ header {
 }
 
 nav {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--pad-x);
   height: 60px;
   display: flex;
   align-items: center;
@@ -83,9 +79,8 @@ nav ul a:hover { color: var(--color-text); }
 
 /* ── Hero ─────────────────────────────────────── */
 .hero {
-  padding: 120px 24px 96px;
-  max-width: var(--max-w);
-  margin: 0 auto;
+  padding: 120px var(--pad-x) 96px;
+  max-width: calc(var(--max-w) + var(--pad-x));
 }
 
 .hero h1 {
@@ -232,8 +227,7 @@ nav ul a:hover { color: var(--color-text); }
 /* ── Footer ───────────────────────────────────── */
 footer {
   border-top: 1px solid var(--color-border);
-  padding: 24px;
-  text-align: center;
+  padding: 24px var(--pad-x);
   font-size: 0.85rem;
   color: var(--color-muted);
 }
