@@ -21,6 +21,7 @@ const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav ul a');
 
 const navObserver = new IntersectionObserver((entries) => {
+  if (window.scrollY < 50) return;
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       navLinks.forEach(a => a.classList.remove('active'));
@@ -31,3 +32,7 @@ const navObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-40% 0px -55% 0px' });
 
 sections.forEach(s => navObserver.observe(s));
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY < 50) navLinks.forEach(a => a.classList.remove('active'));
+}, { passive: true });
